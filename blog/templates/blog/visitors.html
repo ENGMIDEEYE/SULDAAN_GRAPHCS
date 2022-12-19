@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tag %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Visitors view</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Visitor Name</th>  
+          <th>Visitor Description</th> 
+          <th>Date</th>          
+          <th>Action</th>                  
+        </tr>
+        </thead>
+        <tbody>   
+            {% for visit in visits %} 
+       
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <th>{{visit.Name}}</th>
+            <th>{{visit.Desc}}</th>
+            <th>{{visit.Date}}</th>          
+            
+            <th><a href="{% url 'blog:visitors-delete' visit.pk %}" class="btn btn-danger"><i class="fa fa-trash"> Remove</i></a></i></th>          
+            </tr>   
+            
+            {% endfor %}
+
+
+        </tbody>
+    
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+  {% include './pagination.html' with obj_pagination=visits %}
+
+
+{% endblock content%}
+

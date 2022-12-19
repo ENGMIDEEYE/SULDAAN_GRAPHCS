@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="row">
+    {% include './content.html' %}
+   </div>
+     
+
+{% endblock content %}
+
+<div class="row">
+  {% include './category.html' %}
+ </div>
+ <div class="row">
+  {% include './posts.html' %}
+ </div>
+
+ <div class="row">
+  {% include './visitors.html' %}
+ </div>
+
+ <div class="row">
+  {% include './admin_page.html' %}
+ </div>
+
+ <div class="row">
+   {% include './terms.html' %}
+  </div>
+ 
+  <div class="row">
+   {% include './policy-privacy.html' %}
+  </div>

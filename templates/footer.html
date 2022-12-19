@@ -1,0 +1,79 @@
+  {% load static %}
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-light mb-4">Address<hr /></h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>KISMAYO-JUBBALAND-SOMALIA</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+252 610 481699</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Suldaanwy@gmail.com</p>
+                
+                <div class="d-flex pt-2">
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.facebook.com/Suldaan1111?mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.youtube.com/channel/UCDEEE5JPKjXIbB1Ju0Bck9w"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href="https://wa.me/252610481699"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+            </div>
+        
+           
+          
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-light mb-4">Gallery <hr /></h5>
+                <div class="row g-2">
+                    {% for post in posts %}
+                    <div class="col-4">
+                        <img class="img-fluid rounded" src="{{post.Image|truncatewords:6}}" alt="Image">
+                    </div>  
+                    {% endfor %}               
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-light mb-4">Follow our page <hr /></h5>
+                <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/profile.php?id=100082076091422" data-width="360" 
+                data-small-header="false" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true" 
+                fb-xfbml-state="rendered" 
+                fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=260&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100082076091422&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;width=360">
+                <span style="vertical-align: bottom; width: 260px; height: 130px;">
+                <iframe name="f118e33ca10911c" 
+                width="360px" height="1000px" 
+                data-testid="fb:page Facebook Social Plugin" 
+                title="fb:page Facebook Social Plugin" 
+                frameborder="0" 
+                allowtransparency="true" 
+                allowfullscreen="true" 
+                scrolling="no" 
+                allow="encrypted-media" 
+                src="https://www.facebook.com/v3.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df20e009457ef794%26domain%3Dcaawiyesln.blogspot.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fcaawiyesln.blogspot.com%252Ff188825049dc3dc%26relation%3Dparent.parent&amp;container_width=260&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100082076091422&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;width=360" 
+                style="border: none; visibility: visible; width: 260px; height: 130px;" class="">
+                </iframe></span></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#">SULDAAN GRAPHICS</a> All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    <!-- Designed By <a href="https://htmlcodex.com">HTML Codex</a> -->
+                    <!-- <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+ <!-- Back to Top -->
+ <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tag %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Management view</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>  
+          <th>Description</th>  
+          <th>Image</th>  
+          <th>Email</th>  
+          <th>Facebook</th> 
+          <th>Twitter</th>  
+          <th>Whatsapp</th> 
+          <th>Date</th>  
+          <th>Action</th>                  
+        </tr>
+        </thead>
+        <tbody>   
+            {% for mgmnt in mgmnts %} 
+       
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <th>{{mgmnt.Name}}</th>
+            <th>{{mgmnt.Desc}}</th>
+            <th><img src="/{{mgmnt.Image}}" style="border-radius: 10px;" width="50px" alt="User image"></th>
+            <th>{{mgmnt.Email}}</th>
+            <th>{{mgmnt.Facebook}}</th>
+            <th>{{mgmnt.Twitter}}</th>
+            <th>{{mgmnt.Whatsapp}}</th>
+            <th>{{mgmnt.Date}}</th>            
+    
+            <th><a href="{% url 'blog:managemnet-update' mgmnt.pk %}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a></i></th> 
+            <th><a href="{% url 'blog:managemnet-delete' mgmnt.pk %}" class="btn btn-danger"><i class="fa fa-trash"> Remove</i></a></i></th>          
+            </tr>   
+            
+            {% endfor %}
+
+
+        </tbody>
+    
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+  {% include './pagination.html' with obj_pagination=mgmnts %}
+
+
+{% endblock content%}
+

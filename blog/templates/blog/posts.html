@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tag %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Posts view</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Post title</th>  
+          <th>Post category</th>  
+          <th>Post Image</th>  
+          <th>Post Description</th>  
+          <th>Post tags</th> 
+          <th>Post date</th>  
+          <th>Action</th>                  
+        </tr>
+        </thead>
+        <tbody>   
+            {% for post in posts %} 
+       
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <th>{{post.Title}}</th>
+            <th>{{post.Category}}</th>
+            <th><img src="/{{post.Image}}" style="border-radius: 10px;" width="50px" alt="User image"></th>
+            <th>{{post.Desc}}</th>
+            <th>{{post.Tags}}</th>
+            <th>{{pots.Date}}</th>            
+            <th><a href="{% url 'blog:posts-update' post.pk %}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a></i></th> 
+            <th><a href="{% url 'blog:posts-delete' post.pk %}" class="btn btn-danger"><i class="fa fa-trash"> Remove</i></a></i></th>          
+            </tr>   
+            
+            {% endfor %}
+
+
+        </tbody>
+    
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+  {% include './pagination.html' with obj_pagination=posts %}
+
+
+{% endblock content%}
+

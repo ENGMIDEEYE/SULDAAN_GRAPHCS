@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tag %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Category view</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Category name</th>  
+          <th>Action</th>                  
+        </tr>
+        </thead>
+        <tbody>   
+            {% for kat in kats %} 
+       
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <th>{{kat.Name}}</th>  
+            <th><a href="{% url 'blog:category-update' kat.pk %}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a></i></th> 
+            <th><a href="{% url 'blog:category-delete' kat.pk %}" class="btn btn-danger"><i class="fa fa-trash"> Remove</i></a></i></th>          
+            </tr>   
+            
+            {% endfor %}
+
+
+        </tbody>
+    
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+  {% include './pagination.html' with obj_pagination=kats %}
+
+{% endblock content%}
+
